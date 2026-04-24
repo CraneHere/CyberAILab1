@@ -25,11 +25,7 @@
   - увеличение входного разрешения с 640 до 800;
   - Cosine LR + warmup + больше эпох
 - Собрана комбинированная улучшенная конфигурация `improved_final`
-- Реализован собственный SSD-подобный детектор с нуля на PyTorch:
-  - MobileNetV2 (предобучен на ImageNet) + FPN + SSD-head;
-  - свой loss (CrossEntropy + hard negative mining 3:1, Smooth L1 для боксов);
-  - своя реализация `mAP@50`, `Precision` и `Recall` (последние — в точке max F1, усреднение по классам);
-  - декодирование через NMS
+- Реализован собственный SSD-подобный детектор с нуля на PyTorch
 - Обучены и сравнены две версии кастомной модели: базовая и улучшенная
 - Построены сравнительные графики и финальная сводка
 
@@ -59,28 +55,22 @@
 
 ```bash
 git clone <ссылка_на_репозиторий>
-cd <имя_репозитория>/lab1
 ```
 
-### 2. Подготовка окружения Python
+### 2. Подготовка окружения Python и установка зависимостей на случай если не используете ячейку с pip install из notebook
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
+pip install -r requirements
 pip install notebook
 ```
+### 3. Установить и положить в папку датасет на случай,если не используете ячейку из notebook
 
 Для Windows активация окружения:
 
 ```bash
 .venv\Scripts\activate
-```
-
-### 3. Авторизация в Kaggle
-
-```python
-import kagglehub
-kagglehub.login()
 ```
 
 ### 4. Запуск ноутбука
@@ -90,16 +80,6 @@ jupyter notebook
 ```
 
 Открыть файл `lab1.ipynb` и выполнить ячейки последовательно сверху вниз.
-
-### Альтернатива: запуск в Google Colab
-
-1. Открыть `lab1.ipynb` в Google Colab.
-2. Включить GPU: `Среда выполнения` → `Сменить среду выполнения` → `GPU`.
-3. Установить зависимости:
-
-```bash
-!pip install -U ultralytics torch torchvision kagglehub opencv-python matplotlib seaborn pandas pyyaml
-```
 
 4. Выполнить ячейки последовательно.
 
