@@ -67,7 +67,6 @@ cd <имя_репозитория>/lab1
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
 pip install notebook
 ```
 
@@ -77,7 +76,7 @@ pip install notebook
 .venv\Scripts\activate
 ```
 
-### 3. Авторизация в Kaggle (один раз)
+### 3. Авторизация в Kaggle
 
 ```python
 import kagglehub
